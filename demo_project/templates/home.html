@@ -1,0 +1,18 @@
+{% load niftyurls_tags %}{% load i18n %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{{ LANGUAGE_CODE|default:'en' }}" lang="{{ LANGUAGE_CODE|default:'en' }}">
+    <head>
+        <title>{% niftyurls_settings title %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.3.0/build/cssreset/reset-min.css&3.3.0/build/cssfonts/fonts-min.css&3.3.0/build/cssgrids/grids-min.css&3.3.0/build/cssbase/base-min.css">
+    </head>
+    <body {% block body_attr %}{% endblock %}>
+    {% block h1 %}<h1 class="niftyurls">{% niftyurls_settings h1 %}</h1>{% endblock %}
+    <div class="yui3-g">
+	    <div class="yui3-u-1">
+	    {% niftyurls_media "js,css" %}
+	    {% niftyurls_content %}         
+	    </div>
+    </div>
+    </body>
+</html>

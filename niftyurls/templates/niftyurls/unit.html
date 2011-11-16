@@ -1,0 +1,13 @@
+<div id="{{ feed.slug }}" class="unit">
+    {% include "niftyurls/unit_menu.html" %}
+    <div class="page1 active">
+        <ul>{% for entry in feed.entry_set.all|slice:"0:10" %}
+        {% include "niftyurls/item_as_li.html" %}
+        {% endfor %}</ul>
+    </div>
+    <div class="page2 hidden">
+        <ul>{% for entry in feed.entry_set.all|slice:"10:20" %}
+     	{% include "niftyurls/item_as_li.html" %}
+     	{% endfor %}</ul>
+    </div>
+</div>

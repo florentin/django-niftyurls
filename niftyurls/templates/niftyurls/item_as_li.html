@@ -1,0 +1,13 @@
+<li class="entries">
+    <img src="{{NIFTYURLS_MEDIA}}images/c.png" />
+    <a href="{{ entry.link }}" target="_blank">
+      {{ entry.title|striptags }} 
+    </a>
+    <div class="description hidden">
+        {{ entry.description|removetags:"script"|safe|default:"" }}
+        {% if entry.pubdate %}
+          <br /><i>{{ entry.pubdate }}</i>
+        {% endif %}
+    </div>
+    <br class="clear"/>
+</li>

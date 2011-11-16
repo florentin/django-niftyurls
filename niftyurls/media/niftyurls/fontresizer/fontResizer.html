@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>fontResizer Example</title>
+<style type="text/css">
+.bold { font-weight: 900; }
+.boldDef { font-weight: 900; color: #CD0000; }
+a { outline: none; }
+.ON { font-weight: 900; color: #F00; }
+.DISABLED { cursor: default; color: #CCC; }
+</style>
+<script src="jquery-1.4.min.js" type="text/javascript" language="javascript"></script>
+<script src="jquery.fontResizer-2.0.js" type="text/javascript" language="javascript"></script>
+<script type="text/javascript" language="javascript">
+$(document).ready(function() {
+	$('#content p, .resizeMe, .resizeSpan').fontResizer({minFont:10,maxFont:20,increment:1});
+});
+</script>
+
+</head>
+<body>
+<h1>jquery.fontResizer-2.0.js</h1>
+<hr />
+<div class="adjustFont">
+    <div>
+        <a class="increaseClickItem" href="">Up Font</a>
+        <a class="decreaseClickItem" href="">Down Font</a>
+    </div>
+    <div>
+        <a class="setFontSize" title="10" href="">10px</a>
+        <a class="setFontSize" title="15" href="">15px</a>
+        <a class="setFontSize" title="20" href="">20px</a>
+    </div>
+</div>
+
+<div id="content">
+    <h2>Font can be changed incrementally or to specific sizes.</h2>
+    <h3 class="boldDef">Items marked in red are DEFAULTS which can be adjusted easily.</h3>
+    <ul>
+        <li>For incremental changes:
+            <ul>
+                <li>Any element with class name <span class="increaseClickItem bold">increaseClickItem</span> will increase the font size.</li>
+                <li>Any element with class name <span class="decreaseClickItem bold">decreaseClickItem</span> will decrease the font size.</li>
+                <li>The Default <span class="boldDef">increment</span> value is <span class="boldDef">2</span>. <em>See below for example of ways to change the options.</em></li>
+            </ul>
+        </li>
+    </ul>
+    <p>When the <span class="boldDef">minFont</span> or <span class="boldDef">maxFont</span> values are reached, class <span class="boldDef">DISABLED</span> will be passed to <span class="bold">increaseClickItem / decreaseClickItem</span> classes, respectively. The same is true if the <span class="boldDef">fontResizer</span> cookie returns a value that matches <span class="boldDef">minFont</span> or <span class="boldDef">maxFont</span>.</p>
+    <ul>
+        <li>For specific changes:
+            <ul>
+                <li>Any element with class name <span class="setFontSize bold" title="18">setFontSize</span> will set the font size.</li>
+                <li>The size to be set is determined via the <em class="bold">title</em> attribute which needs to be passed when the class is set.</li>
+                <li>Example: <span class="bold">&lt;a class="setFontSize" title="20"&gt;</span> will set font size to 20.</li>
+            </ul>
+        </li>
+    </ul>
+    <p>When an element with class <span class="bold">setFontSize</span> is clicked, class <span class="boldDef">ON</span> will be passed to it. When another element with class <span class="bold">setFontSize</span> is clicked, <span class="boldDef">ON</span> will be removed from the previous element. This also occurs when <span class="bold">increaseClickItem / decreaseClickItem</span> elements are clicked and reach a value that matches a <span class="bold">setFontSize</span> elements value. The same is true if the <span class="boldDef">fontResizer</span> cookie returns a value that matches a <span class="bold">setFontSize</span> value.</p>
+</div>
+<div class="resizeMe">
+    <p>General Defaults are as follows:</p>
+    <ul>
+        <li>sizeType: 'px'</li>
+        <li>minFont: 12</li>
+        <li>maxFont: 16</li>
+        <li>fontSet: 14</li>
+        <li>setFontOn: 'ON'</li>
+        <li>increment: 2</li>
+        <li>incrementDisable: 'DISABLED'</li>
+    </ul>
+    <p>Cookie Defaults are as follows:</p>
+    <ul>
+        <li>cookieName: 'fontResizer'</li>
+        <li>cookieExpire: cExpireDate
+            <ul>
+				<li>cExpireDate is set to the Month/Day the cookie is set, one year from it's creation.</li>
+            </ul>
+            <p>Variables used for cExpireDate: (override as needed for alternate cookie expiration or create new)<br />
+                var date = new Date();<br />
+                var currYear = date.getFullYear();<br />
+                var currMonth = date.getMonth();<br />
+                var currDay = date.getDate();<br />
+                var cExpire = new Date(currYear + 1, currMonth, currDay);<br />
+                var cExpireDate = cExpire.toUTCString();<br />
+            </p>
+        </li>
+        <li>cookiePath: '/'</li>
+    </ul>
+</div>
+<p>Implementation consists of calling the <span class="bold">fontResizer</span> function on a comma-seperated list of elements:<br />
+    <span class="bold">Example:<br />
+        $(document).ready(function() {<br />
+        &nbsp;&nbsp;&nbsp;&nbsp;$('#content p, .resizeMe, .resizeSpan').fontResizer({minFont:10,maxFont:20,increment:1});<br />
+        });
+    </span><br />
+    <span class="resizeSpan"><em>Note that Default Overrides (<span class="bold">OPTIONS</span>) are passed as params within curly braces. Pay close attention to quote inclusion. When in doubt refer to the Default lists above.</em></span></p>
+</body>
+</html>

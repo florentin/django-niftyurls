@@ -1,0 +1,35 @@
+{% block content %}
+<script>
+$.facebox.settings.closeImage = '{{NIFTYURLS_MEDIA}}facebox/closelabel.png';
+$.facebox.settings.loadingImage = '{{NIFTYURLS_MEDIA}}facebox/loading.gif';
+</script>
+<div id="niftyurls">
+    {% for row in rows %}
+	<div class="yui3-g">
+        {% with row|length as row_length %}
+        {% for feed in row %}
+        <div class="yui3-u-1{% if row_length > 1 %}-{{row_length}}{% endif %}">
+        <!-- unit -->{% include "niftyurls/unit.html" %}<!-- /unit -->
+        </div>
+        {% endfor %}
+        {% endwith %}
+    </div>
+    {% if forloop.first %}
+    <div class="yui3-g"><div class="yui3-u-1" style="text-align: center;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-6880213655914703";
+/* 728x90, created 6/9/10 */
+google_ad_slot = "1146897317";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+    </div></div>
+    {% endif %}
+    {% endfor %}
+</div>
+<div id="niftyclone" class="hidden"> </div>
+{% endblock %}

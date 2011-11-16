@@ -1,0 +1,65 @@
+#niftyurls h1 a {
+	color: #D0066D;
+}
+#niftyurls  h2 {
+	margin: 5px 0px;
+	font-size: 1.4em;
+}
+#niftyurls a, #niftyclone a {
+	color: #3B6DAB;
+	text-decoration: none;
+}
+#niftyurls hr {
+    border: 1px solid #D3D3D3;
+}
+#niftyurls ul, #niftyclone ul {
+	padding: 0px;
+	margin: 0px;
+}
+#niftyurls ul li, #niftyclone ul li {
+	list-style-type: none;
+	border-bottom: 1px solid #D3D3D3;
+	padding: 2px 2px;
+}
+#niftyurls ul li:hover {
+    background-color: #E4EFFF;
+}
+#niftyurls a.red {
+    color: #D0066D;
+}
+#niftyurls .clear {
+	clear:both;
+}
+#niftyurls .forward, #niftyurls .backward {
+    color: #4B5966;
+}
+#niftyurls .hidden {
+  display: none;
+}
+#niftyurls .unit {
+  margin: 10px;
+}
+#niftyclone .view_pop {
+    width: 800px;
+    font-size: 1.45em;
+    height: 500px;
+    overflow: auto;
+}
+#niftyclone .description {
+    font-size: 0.7em;
+    color: grey;
+}
+#niftyclone .view_page {
+    font-size: 1.45em;
+}
+
+#facebox div.content {
+    width: 800px;
+}
+#facebox div.content a {
+    color: #3B6DAB;
+    font-size: 1.2em;
+}
+#facebox div.content ul li {
+    list-style-type: none;
+}
